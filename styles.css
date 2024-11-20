@@ -1,0 +1,342 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e2f;
+    color: #ffffff;
+}
+
+header {
+    background-color: #2a2a40;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #ffcc00;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main img {
+    margin-top: 10px;
+    border: 3px solid #ffcc00;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #2a2a40;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.planetes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.planetes li {
+    margin: 10px 0;
+}
+
+.planetes a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.planetes a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+/* Style général du bouton de retour */
+.btn-retour {
+    display: inline-block;
+    background-color: #ffcc00; /* Couleur de fond jaune */
+    color: #2a2a40; /* Couleur du texte sombre */
+    padding: 10px 20px; /* Espace intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Effet d'ombre */
+}
+
+/* Effet au survol */
+.btn-retour:hover {
+    background-color: #2a2a40; /* Fond sombre */
+    color: #ffcc00; /* Texte jaune */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Renforce l'ombre */
+    transform: translateY(-2px); /* Déplace légèrement vers le haut */
+}
+
+/* Alignement centré dans le footer */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style de base pour le titre */
+.titre-principal {
+    font-size: 2.5em;
+    color: #ffcc00;
+    text-align: center;
+    margin: 20px 0;
+    transition: transform 0.5s ease, color 0.5s ease; /* Transition pour transformation et couleur */
+    animation: rotation-init 3s infinite alternate; /* Animation initiale */
+}
+
+/* Animation pour rotation lente */
+@keyframes rotation-init {
+    0% {
+        transform: rotate(0deg);
+        color: #ffcc00;
+    }
+    50% {
+        transform: rotate(10deg) scale(1.1);
+        color: #ffffff;
+    }
+    100% {
+        transform: rotate(-10deg) scale(1);
+        color: #ff8800;
+    }
+}
+
+/* Effet au survol */
+.titre-principal:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotation complète et agrandissement */
+    color: #2a2a40; /* Change la couleur du texte */
+}
+/* Style de base des liens */
+.lien-planete {
+    font-size: 1.5em;
+    color: #ffcc00; /* Jaune solaire */
+    text-decoration: none;
+    display: inline-block; /* Permet d'ajouter des effets comme rotation */
+    margin: 10px 0;
+    transition: transform 0.4s ease, color 0.4s ease; /* Transition fluide */
+}
+
+/* Animation au chargement de la page */
+@keyframes lien-animation {
+    0% {
+        transform: translateY(-10px) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(5px) rotate(10deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Application de l'animation aux liens */
+.lien-planete {
+    animation: lien-animation 1s ease-in-out;
+}
+
+/* Effet au survol */
+.lien-planete:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotation complète et agrandissement */
+    color: #ffffff; /* Change la couleur du texte au survol */
+    text-shadow: 0 0 10px #ffcc00; /* Effet lumineux */
+}
+
+/* Centrage des liens dans la liste */
+.planetes {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.planetes li {
+    margin: 10px 0;
+}
+/* Style du Soleil */
+.soleil {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto; /* Centre le Soleil */
+    background: radial-gradient(circle, #ffcc00, #ff8800, #ff4400); /* Dégradé pour donner un effet de soleil */
+    border-radius: 50%; /* Rend l'élément circulaire */
+    box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400; /* Effet lumineux */
+    animation: pulse 2s infinite; /* Animation pour un effet de pulsation */
+}
+
+/* Animation du Soleil : pulsation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #ffcc00, 0 0 50px #ff8800, 0 0 70px #ff4400;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400;
+    }
+}
+
+/* Organisation générale des liens et du Soleil */
+.planetes {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.planetes li {
+    margin: 10px 0;
+}
+/* Suppression du style de base des liens pour le Soleil */
+.soleil-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Conserve le style visuel du Soleil */
+.soleil-link .soleil {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background: radial-gradient(circle, #ffcc00, #ff8800, #ff4400);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol pour renforcer l'interactivité */
+.soleil-link .soleil:hover {
+    transform: scale(1.2); /* Le Soleil grandit légèrement */
+    box-shadow: 0 0 30px #ffcc00, 0 0 60px #ff8800, 0 0 90px #ff4400; /* Effet lumineux renforcé */
+}
+/* Style de base du Soleil avec texte */
+.soleil {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background: radial-gradient(circle, #ffcc00, #ff8800, #ff4400);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Ajout pour centrer le texte */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    color: #2a2a40; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+    font-size: 1.2em; /* Taille du texte */
+    text-shadow: 0 0 5px #ffcc00; /* Effet lumineux pour le texte */
+}
+
+/* Effet au survol pour le Soleil */
+.soleil:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px #ffcc00, 0 0 60px #ff8800, 0 0 90px #ff4400;
+}
+
+/* Suppression du style des liens entourant le Soleil */
+.soleil-link {
+    text-decoration: none;
+}
+
+/* Style de base pour tous les objets (Soleil + Planètes) */
+.lien-objet {
+    text-decoration: none;
+}
+
+.objet {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background: radial-gradient(circle, #ffcc00, #ff8800, #ff4400); /* Couleurs par défaut */
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff8800, 0 0 60px #ff4400;
+    display: flex; /* Centre le texte */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    font-size: 1em;
+    font-weight: bold;
+    color: #2a2a40; /* Texte sombre pour contraste */
+    text-shadow: 0 0 5px #ffcc00;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Effet au survol pour tous les objets */
+.objet:hover {
+    transform: scale(1.2); /* Agrandissement */
+    box-shadow: 0 0 30px #ffcc00, 0 0 60px #ff8800, 0 0 90px #ff4400;
+    background: radial-gradient(circle, #ffff00, #ffaa00, #ff6600); /* Change le dégradé au survol */
+}
+
+/* Organisation de la liste des planètes */
+.planetes {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.planetes li {
+    margin: 10px 0;
+}
+
+/* Style du titre principal */
+.titre-principal {
+    font-size: 2.5em;
+    color: #ffcc00;
+    text-align: center;
+    margin: 20px 0;
+    transition: transform 0.5s ease, color 0.5s ease;
+    animation: rotation-init 3s infinite alternate;
+}
+
+/* Animation pour le titre */
+@keyframes rotation-init {
+    0% {
+        transform: rotate(0deg);
+        color: #ffcc00;
+    }
+    50% {
+        transform: rotate(10deg) scale(1.1);
+        color: #ffffff;
+    }
+    100% {
+        transform: rotate(-10deg) scale(1);
+        color: #ff8800;
+    }
+}
+
+
+/* Style général du bouton de quiz */
+.quiz-button {
+    display: inline-block;
+    background-color: #ffcc00; /* Couleur de fond jaune */
+    color: #2a2a40; /* Couleur du texte sombre */
+    padding: 10px 20px; /* Espace intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Effet d'ombre */
+}
+
+/* Effet au survol du bouton */
+.quiz-button:hover {
+    background-color: #2a2a40; /* Fond sombre */
+    color: #ffcc00; /* Texte jaune */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Renforce l'ombre */
+    transform: translateY(-2px); /* Déplace légèrement vers le haut */
+}
+

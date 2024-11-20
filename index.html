@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système Solaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles pour la toolbar et les boutons */
+        .toolbar {
+            background-color: #2a2a40;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .toolbar a {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #2a2a40;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .toolbar a:hover {
+            background-color: #2a2a40;
+            color: #ffcc00;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="titre-principal">Bienvenue dans le Système Solaire</h1>
+        <p>Explorez les planètes et le Soleil en cliquant sur leurs noms ci-dessous.</p>
+    </header>
+
+    <nav class="toolbar">
+        <a href="q.html" class="quiz-button">Commencer le quiz</a>
+        <a href="sys.html" class="quiz-button">Accéder à sys.html</a>
+    </nav>
+
+    <main>
+        <!-- Représentation du Soleil -->
+        <a href="soleil.html" class="lien-objet">
+            <div class="objet">Soleil</div>
+        </a>
+
+        <ul class="planetes">
+            <li>
+                <a href="planete1.html" class="lien-objet">
+                    <div class="objet">Mercure</div>
+                </a>
+            </li>
+            <li>
+                <a href="planete2.html" class="lien-objet">
+                    <div class="objet">Vénus</div>
+                </a>
+            </li>
+            <li>
+                <a href="planete3.html" class="lien-objet">
+                    <div class="objet">Mars</div>
+                </a>
+            </li>
+            <li>
+                <a href="planete4.html" class="lien-objet">
+                    <div class="objet">Jupiter</div>
+                </a>
+            </li>
+            <li>
+                <a href="planete5.html" class="lien-objet">
+                    <div class="objet">Saturne</div>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Exploration Astronomique</p>
+    </footer>
+</body>
+</html>
