@@ -1,87 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système Solaire</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="quiz.js" defer></script>
+    <link rel="stylesheet" href="quiz.css">
+    <title>Quiz sur les planètes</title>
     <style>
-        /* Styles pour la toolbar et les boutons */
-        .toolbar {
-            background-color: #2a2a40;
-            padding: 10px;
-            text-align: center;
-        }
+   /* Fond de la page - Crème doux */
+body {
+    background-color: #d2f4e5; /* Beige clair, ton doux pour la page */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .toolbar a {
-            display: inline-block;
-            background-color: #ffcc00;
-            color: #2a2a40;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
+/* Style pour l'en-tête */
+.quizHeader {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #3D7B93;  /* Bleu pastel doux pour l'en-tête */
+}
 
-        .toolbar a:hover {
-            background-color: #2a2a40;
-            color: #ffcc00;
-            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-            transform: translateY(-2px);
-        }
-    </style>
+/* Style pour les questions */
+.question {
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    color: #333333;  /* Gris foncé doux pour les questions */
+}
+
+/* Style pour les réponses */
+.answer {
+    margin-left: 20px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: #555555;  /* Gris doux pour les réponses */
+    transition: color 0.3s ease;
+}
+
+.answer:hover {
+    color: #FF8C00; /* Orange doux lors du survol */
+}
+
+/* Style pour le bouton */
+.quizSubmit {
+    padding: 15px 35px;
+    font-size: 20px;
+    background-color: #61A4D4; /* Bleu pastel doux pour le bouton */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quizSubmit:hover {
+    background-color: #3A8D99; /* Bleu plus foncé au survol */
+}
+
+/* Style pour les cases à cocher et les boutons radio */
+input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Agrandir les boutons radio pour plus de visibilité */
+}
+
+/* Style pour l'ensemble du formulaire */
+form {
+    background-color: #FFFFFF; /* Fond blanc pour les zones de contenu */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Style des cases de réponses */
+label {
+    font-size: 18px;
+    color: #666666;  /* Gris clair pour les labels */
+    transition: color 0.3s ease;
+}
+
+/* Change la couleur des labels au survol */
+label:hover {
+    color: #FF8C00; /* Orange doux au survol des labels */
+}
+
+/* Style des ul et li pour les options de réponses */
+ul {
+    padding-left: 20px;
+}
+
+/* Animation pour l'apparition des éléments */
+.question, .answer, .quizSubmit {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.question:nth-child(odd), .answer:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.question:nth-child(even), .answer:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Style du bouton de retour */
+.btn-retour {
+    display: inline-block;
+    background-color: #ffcc00; /* Couleur de fond jaune */
+    color: #2a2a40; /* Couleur du texte sombre */
+    padding: 10px 20px; /* Espace intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Effet d'ombre */
+    margin-top: 20px;
+}
+
+.btn-retour:hover {
+    background-color: #2a2a40; /* Fond sombre */
+    color: #ffcc00; /* Texte jaune */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Renforce l'ombre */
+    transform: translateY(-2px); /* Déplace légèrement vers le haut */
+}
+      
+  </style> 
 </head>
 <body>
-    <header>
-        <h1 class="titre-principal">Bienvenue dans le Système Solaire</h1>
-        <p>Explorez les planètes et le Soleil en cliquant sur leurs noms ci-dessous.</p>
-    </header>
+  <h2 class="quizHeader">Quiz sur les planètes du système solaire</h2>
+  
+  <form id="quizForm">
+    <table style="width:100%">
+      <tr>
+        <td>
+          <!-- Question 1 -->
+          <div>
+            <p class="question">1. Quelle est la plus grande planète du système solaire ?</p>
+            <ul>
+              <input class="answer" id="q1a1" type="radio" name="q1" value="0">
+              <label for="q1a1">La Terre</label><br>
+              <input class="answer" id="q1a2" type="radio" name="q1" value="1">
+              <label for="q1a2">Jupiter</label><br>
+              <input class="answer" id="q1a3" type="radio" name="q1" value="0">
+              <label for="q1a3">Mars</label><br>
+              <input class="answer" id="q1a4" type="radio" name="q1" value="0">
+              <label for="q1a4">Vénus</label>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <!-- Question 2 -->
+          <div>
+            <p class="question">2. Quelle est la planète la plus proche du Soleil ?</p>
+            <ul>
+              <input class="answer" id="q2a1" type="radio" name="q2" value="0">
+              <label for="q2a1">La Terre</label><br>
+              <input class="answer" id="q2a2" type="radio" name="q2" value="0">
+              <label for="q2a2">Jupiter</label><br>
+              <input class="answer" id="q2a3" type="radio" name="q2" value="1">
+              <label for="q2a3">Mercure</label><br>
+              <input class="answer" id="q2a4" type="radio" name="q2" value="0">
+              <label for="q2a4">Mars</label>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!-- Question 3 -->
+          <div>
+            <p class="question">3. Quelle planète est connue sous le nom de planète rouge ?</p>
+            <ul>
+              <input class="answer" id="q3a1" type="radio" name="q3" value="0">
+              <label for="q3a1">Vénus</label><br>
+              <input class="answer" id="q3a2" type="radio" name="q3" value="0">
+              <label for="q3a2">Jupiter</label><br>
+              <input class="answer" id="q3a3" type="radio" name="q3" value="1">
+              <label for="q3a3">Mars</label><br>
+              <input class="answer" id="q3a4" type="radio" name="q3" value="0">
+              <label for="q3a4">La Terre</label>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <!-- Question 4 -->
+          <div>
+            <p class="question">4. Quelle planète possède le plus grand nombre de lunes ?</p>
+            <ul>
+              <input class="answer" id="q4a1" type="radio" name="q4" value="1">
+              <label for="q4a1">Jupiter</label><br>
+              <input class="answer" id="q4a2" type="radio" name="q4" value="0">
+              <label for="q4a2">La Terre</label><br>
+              <input class="answer" id="q4a3" type="radio" name="q4" value="0">
+              <label for="q4a3">Vénus</label><br>
+              <input class="answer" id="q4a4" type="radio" name="q4" value="0">
+              <label for="q4a4">Mercure</label>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!-- Question 5 -->
+          <div>
+            <p class="question">5. Quelle planète est la plus grande en taille dans le système solaire ?</p>
+            <ul>
+              <input class="answer" id="q5a1" type="radio" name="q5" value="0">
+              <label for="q5a1">La Terre</label><br>
+              <input class="answer" id="q5a2" type="radio" name="q5" value="1">
+              <label for="q5a2">Jupiter</label><br>
+              <input class="answer" id="q5a3" type="radio" name="q5" value="0">
+              <label for="q5a3">Mars</label><br>
+              <input class="answer" id="q5a4" type="radio" name="q5" value="0">
+              <label for="q5a4">Vénus</label>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <!-- Question 6 -->
+          <div>
+            <p class="question">6. Quelle planète a la journée la plus courte dans le système solaire ?</p>
+            <ul>
+              <input class="answer" id="q6a1" type="radio" name="q6" value="0">
+              <label for="q6a1">La Terre</label><br>
+              <input class="answer" id="q6a2" type="radio" name="q6" value="0">
+              <label for="q6a2">Jupiter</label><br>
+              <input class="answer" id="q6a3" type="radio" name="q6" value="1">
+              <label for="q6a3">Mercure</label><br>
+              <input class="answer" id="q6a4" type="radio" name="q6" value="0">
+              <label for="q6a4">Mars</label>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
 
-    <nav class="toolbar">
-        <a href="q.html" class="quiz-button">Commencer le quiz</a>
-        <a href="sys.html" class="quiz-button">Accéder à sys.html</a>
-    </nav>
+    <br/>
+    <div class="submitter">
+      <input class="quizSubmit" id="submitButton" type="button" value="Soumettre les réponses" />
+    </div>
+  </form>
 
-    <main>
-        <!-- Représentation du Soleil -->
-        <a href="soleil.html" class="lien-objet">
-            <div class="objet">Soleil</div>
-        </a>
-
-        <ul class="planetes">
-            <li>
-                <a href="planete1.html" class="lien-objet">
-                    <div class="objet">Mercure</div>
-                </a>
-            </li>
-            <li>
-                <a href="planete2.html" class="lien-objet">
-                    <div class="objet">Vénus</div>
-                </a>
-            </li>
-            <li>
-                <a href="planete3.html" class="lien-objet">
-                    <div class="objet">Mars</div>
-                </a>
-            </li>
-            <li>
-                <a href="planete4.html" class="lien-objet">
-                    <div class="objet">Jupiter</div>
-                </a>
-            </li>
-            <li>
-                <a href="planete5.html" class="lien-objet">
-                    <div class="objet">Saturne</div>
-                </a>
-            </li>
-        </ul>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Exploration Astronomique</p>
-    </footer>
+  <script>
+    document.getElementById("submitButton").addEventListener("click", function(event) {
+      event.preventDefault(); // Empêche l'envoi du formulaire
+      let score = 0;
+      let totalQuestions = 6;
+  
+      // Correct answers for each question
+      let answers = {
+        q1: "2",  // Correct answer is the one with value 1
+        q2: "3",
+        q3: "3",
+        q4: "1",
+        q5: "2",
+        q6: "3"
+      };
+  
+      let resultText = "";
+  
+      // Check each question
+      for (let i = 1; i <= totalQuestions; i++) {
+        let question = "q" + i;
+        let selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+  
+        // If an answer is selected and it's correct
+        if (selectedAnswer && selectedAnswer.value === answers[question]) {
+          score++; // Increment score if the answer is correct
+        } else {
+          // Display correct answer if the answer is wrong
+          let correctAnswer = document.querySelector(`label[for="${question}a${answers[question]}"]`).textContent;
+          resultText += `La réponse correcte pour la question ${i}: ${correctAnswer}\n`;
+        }
+      }
+  
+      // Show the score and correct answers in a pop-up
+      alert(`Votre score: ${score} sur ${totalQuestions}\n\n${resultText}`);
+    });
+  </script>
+    <a href="index.html" class="btn-retour">Retour à la page d'accueil</a>
 </body>
 </html>
+
+
+
+
+
+
